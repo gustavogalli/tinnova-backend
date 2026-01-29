@@ -1,0 +1,43 @@
+spring:
+  cache:
+    type: redis
+
+  datasource:
+    url: jdbc:h2:mem:tinnova-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
+
+  redis:
+    time-to-live: 600000 # 10 minutos
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+jwt:
+  secret: "n8V5zKqR1fYx7GmL4bTjP2cQwHs9XeUaD6vFgZhR0pNkStWc"
+  expiration: 3600000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.cache: TRACE
+    org.springframework.data.redis: DEBUG
